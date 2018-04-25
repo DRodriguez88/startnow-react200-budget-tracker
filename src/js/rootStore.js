@@ -1,4 +1,6 @@
 import { createStore } from 'redux';
+import { rootReducer } from './rootReducer';
+
 
 function tempReducer () {
   return null;

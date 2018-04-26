@@ -32,6 +32,7 @@ export default class ExpenseEntries extends React.Component {
   }
 
   render() {
+    const { description, amount, lineItems } = this.props;
     return (
       <div className='card border-danger mb-3'>
         <div className='card-header text-white bg-danger'>Expense Entries</div>
@@ -43,6 +44,8 @@ export default class ExpenseEntries extends React.Component {
                 type='text'
                 className='form-control'
                 id='expense-description'
+                value={ description }
+                onChange={ this.handleDescriptionInput }
               />
             </div>
             <div className='form-group'>
@@ -53,12 +56,15 @@ export default class ExpenseEntries extends React.Component {
                   type='text'
                   className='form-control'
                   id='expense-amount'
+                  value={ amount }
+                  onChange={ this.handleAmountInput }
                 />
               </div>
             </div>
             <button
               type='button'
               className='btn btn-danger col-12 mb-5'
+              onClick={ this.handleAddExpense }
             >+ Add Expense
             </button>
             <table className='table table-sm table-hover'>
@@ -69,10 +75,14 @@ export default class ExpenseEntries extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Rent</td>
-                  <td>$1,500.00</td>
-                </tr>
+                {
+                  lineItems.map(lineItem => (
+                    <tr>
+                      <td>{lineItem.description}</td>
+                      <td>${lineItem.amount.toFixed(2)}</td>
+                    </tr>
+                  ))
+                }
               </tbody>
             </table>
           </form>

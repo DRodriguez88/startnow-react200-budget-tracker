@@ -5,8 +5,8 @@ import IncomeEntries from './IncomeEntries';
 // that's passed to the props of the component.
 function mapStoreToProps(store) {
   return {
-    description: store.income.description,
-    amount: store.income.amount,
+    description: store.income.description || '',
+    amount: store.income.amount || '',
     lineItems: store.income.lineItems
   };
 }

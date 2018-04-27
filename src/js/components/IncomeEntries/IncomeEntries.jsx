@@ -53,7 +53,7 @@ export default class IncomeEntries extends React.Component {
               <div className='input-group'>
                 <span className='input-group-addon'>$</span>
                 <input
-                  type='text'
+                  type='number'
                   className='form-control'
                   id='income-amount'
                   value={ amount }
@@ -76,8 +76,8 @@ export default class IncomeEntries extends React.Component {
               </thead>
               <tbody>
                 {
-                  lineItems.map(lineItem => (
-                    <tr>
+                  lineItems.map((lineItem, index) => (
+                    <tr key={index}>
                       <td>{lineItem.description}</td>
                       <td>${lineItem.amount.toFixed(2)}</td>
                     </tr>

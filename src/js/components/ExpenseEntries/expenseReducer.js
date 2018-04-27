@@ -1,6 +1,6 @@
 const defaultState = {
-    description: '',
-    amount: '',
+    description: 'Empty',
+    amount: '0',
     lineItems: []
 };
 
